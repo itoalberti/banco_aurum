@@ -4,7 +4,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { useState } from 'react';
 // import listaContas from '../dados/mockContas.js';
 
-export default function TelaCadastrar(props) {
+export default function TelaCadastrarConta(props) {
   const [validado, setValidado] = useState(false);
   const [conta, setConta] = useState({
     num: '',
@@ -12,9 +12,9 @@ export default function TelaCadastrar(props) {
     nome: '',
     senha: '',
     ano: '',
+    // incluir código da agência
   });
 
-  //OK
   function manipularMudanca(e) {
     const elemForm = e.currentTarget;
     const id = elemForm.id;
@@ -47,18 +47,18 @@ export default function TelaCadastrar(props) {
         <h2>Cadastro de nova conta</h2>
         <br />
         <Form noValidate validated={validado} onSubmit={manipulaSubmissao}>
-          {/* EMAIL */}
-          <Form.Group className='mb-3' controlId='email' style={{ width: '340px' }}>
-            <Form.Label>Email:</Form.Label>
-            <Form.Control required type='email' id='email' value={conta.email} onChange={manipularMudanca} />
-            <Form.Control.Feedback type='invalid'>Informe o email do cliente!</Form.Control.Feedback>
-          </Form.Group>
-
           {/* NOME */}
           <Form.Group className='mb-3' controlId='nome' style={{ width: '340px' }}>
             <Form.Label>Nome:</Form.Label>
             <Form.Control required type='text' id='nome' value={conta.nome} onChange={manipularMudanca} />
             <Form.Control.Feedback type='invalid'>Informe o nome do cliente!</Form.Control.Feedback>
+          </Form.Group>
+
+          {/* EMAIL */}
+          <Form.Group className='mb-3' controlId='email' style={{ width: '340px' }}>
+            <Form.Label>Email:</Form.Label>
+            <Form.Control required type='email' id='email' value={conta.email} onChange={manipularMudanca} />
+            <Form.Control.Feedback type='invalid'>Informe o email do cliente!</Form.Control.Feedback>
           </Form.Group>
 
           <Row>
@@ -87,6 +87,7 @@ export default function TelaCadastrar(props) {
             <Form.Control required id='ano' type='number' min='1900' value={conta.ano} onChange={manipularMudanca} />
             <Form.Control.Feedback type='invalid'>Informe o ano de nascimento!</Form.Control.Feedback>
           </Form.Group>
+
           <br />
           <Row>
             {/* BOTÃO DE CADASTRAR */}

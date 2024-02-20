@@ -14,22 +14,22 @@ export default function TelaInicial(props) {
       <Row className='d-flex align-items-center justify-content-center'>
         <Col>
           <Row className='justify-content-md-center p-2' md='2'>
-            <LinkContainer to='/cadastrar'>
+            <LinkContainer to='/cadastrarconta'>
               <Button variant='dark'>Cadastrar nova conta</Button>
             </LinkContainer>
           </Row>
           <Row className='justify-content-md-center p-2' md='2'>
-            <LinkContainer to='/alterar'>
+            <LinkContainer to='/alterarconta'>
               <Button variant='dark'>Alterar conta existente</Button>
             </LinkContainer>
           </Row>
           <Row className='justify-content-md-center p-2' md='2'>
-            <LinkContainer to='/excluir'>
+            <LinkContainer to='/excluirconta'>
               <Button variant='dark'>Excluir conta</Button>
             </LinkContainer>
           </Row>
           <Row className='justify-content-md-center p-2' md='2'>
-            <LinkContainer to='/consultar'>
+            <LinkContainer to='/consultarcontas'>
               <Button
                 variant='dark'
                 // onClick={() => {

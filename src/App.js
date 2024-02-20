@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import TelaInicial from './telas/TelaInicial';
-import TelaCadastrar from './telas/TelaCadastrar';
+import TelaCadastrarConta from './telas/TelaCadastrarConta';
 import TelaAlterar from './telas/TelaAlterar';
 import TelaExcluir from './telas/TelaExcluir';
 import TelaConsultar from './telas/TelaConsultar';
@@ -13,10 +13,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<TelaInicial />} />
-          <Route path='/cadastrar' element={<TelaCadastrar />} />
-          <Route path='/alterar' element={<TelaAlterar />} />
-          <Route path='/excluir' element={<TelaExcluir />} />
-          <Route path='/consultar' element={<TelaConsultar />} />
+          <Route path='/cadastrarconta' element={<TelaCadastrarConta />} />
+          <Route path='/alterarconta' element={<TelaAlterar />} />
+          <Route path='/excluirconta' element={<TelaExcluir />} />
+          <Route path='/consultarcontas' element={<TelaConsultar />} />
+          {/* <Route path='/' */}
           <Route path='*' element={<Tela404 />} />
         </Routes>
       </BrowserRouter>
