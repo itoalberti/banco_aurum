@@ -2,7 +2,7 @@ import { Button, Col, Form, Row } from 'react-bootstrap';
 import Pagina from '../templates/Pagina';
 import { LinkContainer } from 'react-router-bootstrap';
 
-export default function TelaAlterar() {
+export default function TelaAlterarConta() {
   return (
     <Pagina>
       <h2>Alteração de cadastro</h2>

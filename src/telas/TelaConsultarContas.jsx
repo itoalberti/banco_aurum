@@ -5,7 +5,7 @@ import { useState } from 'react';
 import listaContas from '../dados/mockContas';
 // import listaContas from '../dados/mockContas.js';
 
-export default function TelaConsultar(props) {
+export default function TelaConsultarContas(props) {
   const [contas, setContas] = useState([]);
 
   return (

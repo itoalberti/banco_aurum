@@ -40,6 +40,13 @@ export default function TelaInicial(props) {
               </Button>
             </LinkContainer>
           </Row>
+          <br />
+          <br />
+          <Row className='justify-content-md-center p-2' md='2'>
+            <LinkContainer to='/cadastraragencia'>
+              <Button variant='dark'>Cadastrar nova agência</Button>
+            </LinkContainer>
+          </Row>
         </Col>
         <Col className='d-flex align-items-center justify-content-center'>
           <Image src='https://cdn.icon-icons.com/icons2/2104/PNG/512/bank_icon_129525.png' width={400} fluid />

@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import TelaInicial from './telas/TelaInicial';
 import TelaCadastrarConta from './telas/TelaCadastrarConta';
-import TelaAlterar from './telas/TelaAlterar';
-import TelaExcluir from './telas/TelaExcluir';
-import TelaConsultar from './telas/TelaConsultar';
+import TelaAlterarConta from './telas/TelaAlterarConta';
+import TelaExcluir from './telas/TelaExcluirConta';
+import TelaConsultarContas from './telas/TelaConsultarContas';
 import Tela404 from './telas/Tela404';
+import TelaCadastrarAgencia from './telas/TelaCadastrarAgencia';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -14,9 +15,10 @@ function App() {
         <Routes>
           <Route path='/' element={<TelaInicial />} />
           <Route path='/cadastrarconta' element={<TelaCadastrarConta />} />
-          <Route path='/alterarconta' element={<TelaAlterar />} />
+          <Route path='/cadastraragencia' element={<TelaCadastrarAgencia />} />
+          <Route path='/alterarconta' element={<TelaAlterarConta />} />
           <Route path='/excluirconta' element={<TelaExcluir />} />
-          <Route path='/consultarcontas' element={<TelaConsultar />} />
+          <Route path='/consultarcontas' element={<TelaConsultarContas />} />
           {/* <Route path='/' */}
           <Route path='*' element={<Tela404 />} />
         </Routes>

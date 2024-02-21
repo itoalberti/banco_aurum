@@ -1,4 +1,4 @@
-import { Button, Col, Form, Row } from 'react-bootstrap';
+import { Button, Col, Dropdown, Form, Row } from 'react-bootstrap';
 import Pagina from '../templates/Pagina';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useState } from 'react';
@@ -64,20 +64,48 @@ export default function TelaCadastrarAgencia(props) {
             {/* UF */}
             <Col md='2'>
               <Form.Group className='mb-3' controlId='uf' style={{ width: '150px' }}>
-                <Form.Label>Senha:</Form.Label>
-                <Form.Control required type='text' id='uf' value={agencia.uf} onChange={manipularMudanca} />
+                <Form.Label style={{ width: '50px' }}>UF:</Form.Label>
+                <select className='mb-3' style={{ width: '40px' }} id='uf'>
+                  <option></option>
+                  <option value='SP'>SP</option>
+                  <option value='SP'>PR</option>
+                  <option value='SP'>MG</option>
+                </select>
+                {/* <Dropdown.Toggle required id='uf'>
+                  akjsdh
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item href='AC'>AC</Dropdown.Item>
+                  <Dropdown.Item>AL</Dropdown.Item>
+                  <Dropdown.Item>AP</Dropdown.Item>
+                  <Dropdown.Item>AM</Dropdown.Item>
+                  <Dropdown.Item>BA</Dropdown.Item>
+                  <Dropdown.Item>CE</Dropdown.Item>
+                  <Dropdown.Item>ES</Dropdown.Item>
+                  <Dropdown.Item>GO</Dropdown.Item>
+                  <Dropdown.Item>MA</Dropdown.Item>
+                  <Dropdown.Item>MT</Dropdown.Item>
+                  <Dropdown.Item>MS</Dropdown.Item>
+                  <Dropdown.Item>MG</Dropdown.Item>
+                  <Dropdown.Item>PA</Dropdown.Item>
+                  <Dropdown.Item>PB</Dropdown.Item>
+                  <Dropdown.Item>PR</Dropdown.Item>
+                  <Dropdown.Item>PE</Dropdown.Item>
+                  <Dropdown.Item>PI</Dropdown.Item>
+                  <Dropdown.Item>RJ</Dropdown.Item>
+                  <Dropdown.Item>RN</Dropdown.Item>
+                  <Dropdown.Item>RS</Dropdown.Item>
+                  <Dropdown.Item>RO</Dropdown.Item>
+                  <Dropdown.Item>RR</Dropdown.Item>
+                  <Dropdown.Item>SC</Dropdown.Item>
+                  <Dropdown.Item>SP</Dropdown.Item>
+                  <Dropdown.Item>SE</Dropdown.Item>
+                  <Dropdown.Item>TO</Dropdown.Item>
+                  <Dropdown.Item>DF</Dropdown.Item>
+                </Dropdown.Menu> */}
                 <Form.Control.Feedback type='invalid'>Informe o estado da agência!</Form.Control.Feedback>
               </Form.Group>
             </Col>
-
-            {/* REPETIR A SENHA */}
-            {/* <Col md='2'>
-              <Form.Group className='mb-3' controlId='senha2' style={{ width: '150px' }}>
-                <Form.Label>Repita a senha:</Form.Label>
-                <Form.Control required type='password' id='senha2' onChange={manipularMudanca} />
-                <Form.Control.Feedback type='invalid'>Repita a sua senha!</Form.Control.Feedback>
-              </Form.Group>
-            </Col> */}
           </Row>
 
           {/* ANO DE NASCIMENTO */}
