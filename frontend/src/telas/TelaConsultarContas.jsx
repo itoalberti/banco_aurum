@@ -2,7 +2,7 @@ import { Button, Col, Container, Form, Row, Table } from 'react-bootstrap';
 import Pagina from '../templates/Pagina';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useState } from 'react';
-import listaContas from '../dados/mockContas';
+import listaContas from '../dados/mock';
 // import listaContas from '../dados/mockContas.js';
 
 export default function TelaConsultarContas(props) {

@@ -2,7 +2,7 @@ import { Row, Button, Col, Image } from 'react-bootstrap';
 import Pagina from '../templates/Pagina';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useState } from 'react';
-import listaContas from '../dados/mockContas';
+import listaContas from '../dados/mock';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function TelaInicial(props) {
