@@ -8,6 +8,7 @@ export default function TelaCadastrarConta(props) {
   const [validado, setValidado] = useState(false);
   const [conta, setConta] = useState({
     num: '',
+    cpf: '',
     email: '',
     nome: '',
     senha: '',
@@ -52,6 +53,13 @@ export default function TelaCadastrarConta(props) {
             <Form.Label>Nome:</Form.Label>
             <Form.Control required type='text' id='nome' value={conta.nome} onChange={manipularMudanca} />
             <Form.Control.Feedback type='invalid'>Informe o nome do cliente!</Form.Control.Feedback>
+          </Form.Group>
+
+          {/* CPF */}
+          <Form.Group className='mb-3' controlId='nome' style={{ width: '340px' }}>
+            <Form.Label>CPF:</Form.Label>
+            <Form.Control required type='text' id='cpf' value={conta.cpf} onChange={manipularMudanca} />
+            <Form.Control.Feedback type='invalid'>Informe o CPF do cliente!</Form.Control.Feedback>
           </Form.Group>
 
           {/* EMAIL */}

@@ -6,13 +6,21 @@ export default function TelaExcluirConta() {
   return (
     <Pagina>
       <h2>Exclusão de conta</h2>
+      <h4>Exibir nome e CPF do correntista</h4>
       <br />
       <Form>
         {/* EMAIL */}
-        <Form.Group className='mb-3' controlId='formEmail' style={{ width: '340px' }}>
+        {/* <Form.Group className='mb-3' controlId='formEmail' style={{ width: '340px' }}>
           <Form.Label>Digite o email da conta que deseja excluir:</Form.Label>
           <Form.Control required type='email' />
           <Form.Control.Feedback type='invalid'>Informe o email do cliente!</Form.Control.Feedback>
+        </Form.Group> */}
+
+        {/* NÚMERO */}
+        <Form.Group className='mb-3' controlId='formEmail' style={{ width: '140px' }}>
+          <Form.Label>Digite o número da conta que deseja excluir:</Form.Label>
+          <Form.Control required type='number' />
+          <Form.Control.Feedback type='invalid'>Informe o número da conta a ser excluída!</Form.Control.Feedback>
         </Form.Group>
 
         <Row>
@@ -34,7 +42,7 @@ export default function TelaExcluirConta() {
         </Row>
         <br />
         <Row>
-          {/* BOTÃO DE CADASTRAR */}
+          {/* BOTÃO DE CONFIRMAR EXCLUSÃO */}
           <Col xs='auto'>
             <Button variant='danger' type='submit'>
               Confirmar exclusão

@@ -5,7 +5,9 @@ import { LinkContainer } from 'react-router-bootstrap';
 export default function TelaAlterarConta() {
   return (
     <Pagina>
-      <h2>Alteração de cadastro</h2>
+      <h2>Alteração de conta</h2>
+      <br />
+      <h4>Exibir aqui o nome e o CPF do correntista</h4>
       <br />
       <Form>
         {/* EMAIL */}
@@ -16,10 +18,10 @@ export default function TelaAlterarConta() {
         </Form.Group>
 
         {/* NOME */}
-        <Form.Group className='mb-3' controlId='formNome' style={{ width: '340px' }}>
+        {/* <Form.Group className='mb-3' controlId='formNome' style={{ width: '340px' }}>
           <Form.Label>Nome:</Form.Label>
           <Form.Control required type='text' />
-        </Form.Group>
+        </Form.Group> */}
 
         <Row>
           {/* SENHA */}
@@ -40,13 +42,13 @@ export default function TelaAlterarConta() {
         </Row>
 
         {/* ANO DE NASCIMENTO */}
-        <Form.Group className='mb-3' controlId='formAno' style={{ width: '150px' }}>
+        {/* <Form.Group className='mb-3' controlId='formAno' style={{ width: '150px' }}>
           <Form.Label>Ano de nascimento:</Form.Label>
           <Form.Control required type='number' min='1900' />
-        </Form.Group>
+        </Form.Group> */}
         <br />
         <Row>
-          {/* BOTÃO DE CADASTRAR */}
+          {/* BOTÃO DE CONFIRMAR ALTERAÇÕES */}
           <Col xs='auto'>
             <Button variant='dark' type='submit'>
               Confirmar alterações

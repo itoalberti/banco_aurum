@@ -48,14 +48,14 @@ export default function TelaCadastrarAgencia(props) {
         <Form noValidate validated={validado} onSubmit={manipulaSubmissao}>
           {/* ENDEREÇO */}
           <Form.Group className='mb-3' controlId='endereco' style={{ width: '340px' }}>
-            <Form.Label>Nome:</Form.Label>
+            <Form.Label>Endereço:</Form.Label>
             <Form.Control required type='text' id='endereco' value={agencia.endereco} onChange={manipularMudanca} />
             <Form.Control.Feedback type='invalid'>Informe o endereço da agência!</Form.Control.Feedback>
           </Form.Group>
 
           {/* CIDADE */}
           <Form.Group className='mb-3' controlId='cidade' style={{ width: '340px' }}>
-            <Form.Label>Email:</Form.Label>
+            <Form.Label>Cidade:</Form.Label>
             <Form.Control required type='email' id='cidade' value={agencia.cidade} onChange={manipularMudanca} />
             <Form.Control.Feedback type='invalid'>Informe a cidade da agência!</Form.Control.Feedback>
           </Form.Group>
