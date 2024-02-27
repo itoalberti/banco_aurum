@@ -12,7 +12,7 @@ export default function TelaAlterarConta() {
       <Form>
         {/* EMAIL */}
         <Form.Group className='mb-3' controlId='formEmail' style={{ width: '340px' }}>
-          <Form.Label>Email:</Form.Label>
+          <Form.Label>Novo email:</Form.Label>
           <Form.Control required type='email' />
           <Form.Control.Feedback type='invalid'>Informe o email do cliente!</Form.Control.Feedback>
         </Form.Group>
@@ -27,7 +27,7 @@ export default function TelaAlterarConta() {
           {/* SENHA */}
           <Col md='2'>
             <Form.Group className='mb-3' controlId='formSenha' style={{ width: '150px' }}>
-              <Form.Label>Senha:</Form.Label>
+              <Form.Label>Nova senha:</Form.Label>
               <Form.Control required type='password' />
             </Form.Group>
           </Col>
@@ -40,12 +40,6 @@ export default function TelaAlterarConta() {
             </Form.Group>
           </Col> */}
         </Row>
-
-        {/* ANO DE NASCIMENTO */}
-        {/* <Form.Group className='mb-3' controlId='formAno' style={{ width: '150px' }}>
-          <Form.Label>Ano de nascimento:</Form.Label>
-          <Form.Control required type='number' min='1900' />
-        </Form.Group> */}
         <br />
         <Row>
           {/* BOTÃO DE CONFIRMAR ALTERAÇÕES */}

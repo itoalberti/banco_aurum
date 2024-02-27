@@ -108,19 +108,12 @@ export default function TelaCadastrarAgencia(props) {
             </Col>
           </Row>
 
-          {/* ANO DE NASCIMENTO */}
-          <Form.Group className='mb-3' controlId='ano' style={{ width: '150px' }}>
-            <Form.Label>Ano de nascimento:</Form.Label>
-            <Form.Control required id='ano' type='number' min='1900' value={agencia.ano} onChange={manipularMudanca} />
-            <Form.Control.Feedback type='invalid'>Informe o ano de nascimento!</Form.Control.Feedback>
-          </Form.Group>
-
           <br />
           <Row>
             {/* BOTÃO DE CADASTRAR */}
             <Col xs='auto'>
               <Button variant='dark' type='submit'>
-                Cadastrar conta
+                Cadastrar agência
               </Button>
             </Col>
 

@@ -62,6 +62,13 @@ export default function TelaCadastrarConta(props) {
             <Form.Control.Feedback type='invalid'>Informe o CPF do cliente!</Form.Control.Feedback>
           </Form.Group>
 
+          {/* ANO DE NASCIMENTO */}
+          <Form.Group className='mb-3' controlId='ano' style={{ width: '150px' }}>
+            <Form.Label>Ano de nascimento:</Form.Label>
+            <Form.Control required id='ano' type='number' min='1900' value={conta.ano} onChange={manipularMudanca} />
+            <Form.Control.Feedback type='invalid'>Informe o ano de nascimento!</Form.Control.Feedback>
+          </Form.Group>
+
           {/* EMAIL */}
           <Form.Group className='mb-3' controlId='email' style={{ width: '340px' }}>
             <Form.Label>Email:</Form.Label>
@@ -89,13 +96,6 @@ export default function TelaCadastrarConta(props) {
             </Col> */}
           </Row>
 
-          {/* ANO DE NASCIMENTO */}
-          <Form.Group className='mb-3' controlId='ano' style={{ width: '150px' }}>
-            <Form.Label>Ano de nascimento:</Form.Label>
-            <Form.Control required id='ano' type='number' min='1900' value={conta.ano} onChange={manipularMudanca} />
-            <Form.Control.Feedback type='invalid'>Informe o ano de nascimento!</Form.Control.Feedback>
-          </Form.Group>
-
           <br />
           <Row>
             {/* BOTÃO DE CADASTRAR */}
@@ -113,6 +113,7 @@ export default function TelaCadastrarConta(props) {
             </Col>
           </Row>
         </Form>
+        <br />
       </Pagina>
     </>
   );
