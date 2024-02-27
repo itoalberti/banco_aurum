@@ -1,0 +1,37 @@
+ESTRUTURA PROJETO BANCO AURUM:
+
+AGÊNCIA:
+	codigo (autoincrement)
+	endereço
+	cidade
+	uf
+
+	CADASTRAR
+	ALTERAR
+
+CONTA
+	numero (autoincrement)
+	nome
+	email
+	senha
+	ano de nascimento
+
+	CADASTRAR
+	ALTERAR 	utiliza número e senha para validação
+			altera email e senha?
+	EXCLUIR		utiliza número e senha para validação
+	CONSULTAR	exibe lista
+
+RELACIONAMENTOS:
+1 agência tem várias contas
+vários clientes têm várias contas (validar pelo cpf)
+
+************DÚVIDAS************
+como validar a UF no dropdrown para o backend?
+criar página para receber número da conta e senha antes de partir para a alteração/exclusão (1 correntista pode ter várias contas)
+exibir o CPF e nome do cliente na página de alterar/excluir conta
+formatar CPF com formato correto (texto apenas de números)
+validar com senha duas vezes a exclusão da conta
+qual a utilidade de formEmail, formSenha etc (telaExcluirConta, telaAlterarConta)?
+ao cadastrar agência, como informar o código da agência nova?
+ao alterar conta, implementar botão para escolher o que será alterado: email ou senha. no caso de senha, pedir senha anterior e senha nova.
