@@ -1,6 +1,18 @@
 ESTRUTURA PROJETO BANCO AURUM:
 
+CLIENTE:
+CADASTRAR, ALTERAR, CONSULTAR, EXCLUIR
+	nome
+	cpf
+	dataNasc
+	endereco
+	cidade
+	uf
+	email
+	telefone
+
 AGÊNCIA:
+CADASTRAR, ALTERAR, CONSULTAR, EXCLUIR
 	codigo (autoincrement)
 	endereço
 	cidade
@@ -27,6 +39,7 @@ RELACIONAMENTOS:
 vários clientes têm várias contas (validar pelo cpf)
 
 ************DÚVIDAS************
+qual formato é a dataNasc?
 como validar a UF no dropdrown para o backend?
 criar página para receber número da conta e senha antes de partir para a alteração/exclusão (1 correntista pode ter várias contas)
 exibir o CPF e nome do cliente na página de alterar/excluir conta
