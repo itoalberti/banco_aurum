@@ -96,8 +96,8 @@ export default function TelaConsultarAgencias(props) {
               return (
                 //   necessário identificar cada linha da tabela usando "key"
                 // key → ajuda o React na rendereização dos componentes no DOM virtual
-                <tr key={agencia.codigo}>
-                  <td>{agencia.codigo}</td>
+                <tr key={agencia.cod_ag}>
+                  <td>{agencia.cod_ag}</td>
                   <td>{agencia.endereco}</td>
                   <td>{agencia.cidade}</td>
                   <td>{agencia.uf}</td>

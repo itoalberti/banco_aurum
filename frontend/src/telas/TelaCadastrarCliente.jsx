@@ -7,15 +7,17 @@ import { useState } from 'react';
 export default function TelaCadastrarCliente(props) {
   const [validado, setValidado] = useState(false);
   const [cliente, setCliente] = useState({
-    // incluir código da agência → autoincrement, não definido pelo usuário
+    // cod_cli:'',
     nome: '',
     cpf: '',
+    senha: '',
     dataNasc: '',
     endereco: '',
     cidade: '',
     uf: '',
     email: '',
     telefone: '',
+    cod_ag: '',
   });
 
   function manipularMudanca(e) {
@@ -80,7 +82,6 @@ export default function TelaCadastrarCliente(props) {
           </Form.Group>
 
           {/* CIDADE */}
-          {/* <Row> */}
           <Col md='2'>
             <Form.Group className='mb-3' controlId='cidade' style={{ width: '340px' }}>
               <Form.Label>Cidade:</Form.Label>
@@ -88,19 +89,42 @@ export default function TelaCadastrarCliente(props) {
               <Form.Control.Feedback type='invalid'>Informe a cidade onde o cliente reside!</Form.Control.Feedback>
             </Form.Group>
           </Col>
+
           <Col md='2'>
-            {/* <Row> */}
             {/* UF */}
             <Form.Group className='mb-3' controlId='uf'>
               <Form.Label style={{ width: '50px' }}>UF:</Form.Label>
               <select className='mb-3' id='uf'>
                 <option></option>
+                <option value='AC'>AC</option>
+                <option value='AL'>AL</option>
+                <option value='AP'>AP</option>
+                <option value='AM'>AM</option>
+                <option value='BA'>BA</option>
+                <option value='CE'>CE</option>
+                <option value='ES'>ES</option>
+                <option value='GO'>GO</option>
+                <option value='MA'>MA</option>
+                <option value='MT'>MT</option>
+                <option value='MS'>MS</option>
+                <option value='MG'>MG</option>
+                <option value='PA'>PA</option>
+                <option value='PB'>PB</option>
+                <option value='PR'>PR</option>
+                <option value='PE'>PE</option>
+                <option value='PI'>PI</option>
+                <option value='RJ'>RJ</option>
+                <option value='RN'>RN</option>
+                <option value='RS'>RS</option>
+                <option value='RO'>RO</option>
+                <option value='RR'>RR</option>
+                <option value='SC'>SC</option>
                 <option value='SP'>SP</option>
-                <option value='SP'>PR</option>
-                <option value='SP'>MG</option>
+                <option value='SE'>SE</option>
+                <option value='TO'>TO</option>
+                <option value='DF'>DF</option>
               </select>
               {/* <Dropdown.Toggle required id='uf'>
-                  akjsdh
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   <Dropdown.Item href='AC'>AC</Dropdown.Item>
@@ -133,6 +157,7 @@ export default function TelaCadastrarCliente(props) {
                 </Dropdown.Menu> */}
               <Form.Control.Feedback type='invalid'>Informe o estado da agência!</Form.Control.Feedback>
             </Form.Group>
+
             {/* EMAIL */}
             <Form.Group className='mb-3' controlId='email' style={{ width: '240px' }}>
               <Form.Label>Email:</Form.Label>
@@ -147,6 +172,25 @@ export default function TelaCadastrarCliente(props) {
               <Form.Control.Feedback type='invalid'>Informe o telefone do cliente !</Form.Control.Feedback>
             </Form.Group>
           </Col>
+
+          <Row style={{ width: '350px' }}>
+            {/* SENHA */}
+            <Col>
+              <Form.Group className='mb-3' controlId='senha' style={{ width: '120px' }}>
+                <Form.Label>Senha:</Form.Label>
+                <Form.Control required type='password' id='senha' value={cliente.senha} onChange={manipularMudanca} />
+                <Form.Control.Feedback type='invalid'>Informe a senha da nova conta!</Form.Control.Feedback>
+              </Form.Group>
+            </Col>
+            <Col>
+              {/* REPETIR A SENHA */}
+              <Form.Group className='mb-3' controlId='senha' style={{ width: '120px' }}>
+                <Form.Label>Repita a senha:</Form.Label>
+                <Form.Control required type='password' id='senha' value={cliente.senha} onChange={manipularMudanca} />
+                <Form.Control.Feedback type='invalid'>Informe a senha da nova conta!</Form.Control.Feedback>
+              </Form.Group>
+            </Col>
+          </Row>
 
           <br />
           <Row>
@@ -165,7 +209,6 @@ export default function TelaCadastrarCliente(props) {
             </Col>
           </Row>
           <br />
-          {/* <br /> */}
         </Form>
       </Pagina>
     </>

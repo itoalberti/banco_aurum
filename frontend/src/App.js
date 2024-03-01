@@ -3,14 +3,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import TelaInicial from './telas/TelaInicial';
 import TelaCadastrarCliente from './telas/TelaCadastrarCliente';
 import TelaAlterarCliente from './telas/TelaAlterarCliente';
-import TelaCadastrarConta from './telas/TelaCadastrarConta';
-import TelaAlterarConta from './telas/TelaAlterarConta';
-import TelaConsultarContas from './telas/TelaConsultarContas';
-import TelaExcluirConta from './telas/TelaExcluirConta';
+import TelaAlterarConta from './telas/___TelaAlterarConta';
+import TelaConsultarProdutos from './telas/TelaConsultarProdutos';
+import TelaExcluirConta from './telas/TelaExcluirProduto';
 import TelaConsultarAgencias from './telas/TelaConsultarAgencias';
 import Tela404 from './telas/Tela404';
 import TelaCadastrarAgencia from './telas/TelaCadastrarAgencia';
-import TelaExcluirCliente from './telas/TelaExcluirCliente';
+import TelaExcluirCliente from './telas/___TelaExcluirCliente';
+import TelaAlterarAgencia from './telas/TelaAlterarAgencia';
+import TelaConsultarClientes from './telas/TelaConsultarClientes';
+import TelaCadastrarProduto from './telas/TelaCadastrarProduto';
+import TelaExcluirProduto from './telas/TelaExcluirProduto';
+import TelaContratarProduto from './telas/TelaContratarProduto';
+import TelaCadastrarProdEmAgencia from './telas/TelaCadastrarProdEmAgencia';
 
 // banco de dados: backendpfs2
 // user: mauricioalberti
@@ -26,16 +31,19 @@ function App() {
           <Route path='/cadastrarcliente' element={<TelaCadastrarCliente />} />
           <Route path='/alterarcliente' element={<TelaAlterarCliente />} />
           <Route path='/excluircliente' element={<TelaExcluirCliente />} />
+          <Route path='/consultarclientes' element={<TelaConsultarClientes />} />
+          <Route path='/contratarproduto' element={<TelaContratarProduto />} />
 
-          {/* CONTAS */}
-          <Route path='/cadastrarconta' element={<TelaCadastrarConta />} />
-          <Route path='/alterarconta' element={<TelaAlterarConta />} />
-          <Route path='/excluirconta' element={<TelaExcluirConta />} />
-          <Route path='/consultarcontas' element={<TelaConsultarContas />} />
+          {/* PRODUTOS */}
+          <Route path='/cadastrarproduto' element={<TelaCadastrarProduto />} />
+          <Route path='/excluirproduto' element={<TelaExcluirProduto />} />
+          <Route path='/consultarprodutos' element={<TelaConsultarProdutos />} />
 
           {/* AGÊNCIAS */}
           <Route path='/cadastraragencia' element={<TelaCadastrarAgencia />} />
           <Route path='/consultaragencias' element={<TelaConsultarAgencias />} />
+          <Route path='/alteraragencia' element={<TelaAlterarAgencia />} />
+          <Route path='/cadastrarprodutoemagencia' element={<TelaCadastrarProdEmAgencia />} />
 
           {/* <Route path='/' */}
           <Route path='*' element={<Tela404 />} />

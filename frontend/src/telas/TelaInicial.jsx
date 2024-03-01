@@ -2,12 +2,12 @@ import { Row, Button, Col, Image } from 'react-bootstrap';
 import Pagina from '../templates/Pagina';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useState } from 'react';
-import listaContas from '../dados/mockContas';
+import listaProdutos from '../dados/mockProdutos';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function TelaInicial(props) {
   const [exibirTabela, setExibirTabela] = useState(true);
-  const [contas, setContas] = useState(listaContas);
+  const [contas, setContas] = useState(listaProdutos);
 
   return (
     <Pagina>
@@ -45,37 +45,37 @@ export default function TelaInicial(props) {
               </Button>
             </LinkContainer>
           </Row>
+          {/* CONTRATAR PRODUTO */}
+          <Row className='justify-content-md-center p-2' md='1'>
+            <LinkContainer to='/contratarproduto'>
+              <Button variant='dark'>Contratar produto</Button>
+            </LinkContainer>
+          </Row>
         </Col>
         <Col>
-          {/* ______________________________CONTA______________________________ */}
-          {/* CADASTRAR CONTA */}
+          {/* ______________________________PRODUTO______________________________ */}
+          {/* CADASTRAR PRODUTO */}
           <Row className='justify-content-md-center p-2' md='1'>
-            <LinkContainer to='/cadastrarconta'>
-              <Button variant='dark'>Cadastrar conta</Button>
+            <LinkContainer to='/cadastrarproduto'>
+              <Button variant='dark'>Cadastrar produto</Button>
             </LinkContainer>
           </Row>
-          {/* ALTERAR CONTA */}
+          {/* EXCLUIR PRODUTO */}
           <Row className='justify-content-md-center p-2' md='1'>
-            <LinkContainer to='/alterarconta'>
-              <Button variant='dark'>Alterar conta</Button>
+            <LinkContainer to='/excluirproduto'>
+              <Button variant='dark'>Excluir produto</Button>
             </LinkContainer>
           </Row>
-          {/* EXCLUIR CONTA */}
+          {/* CONSULTAR PRODUTOS */}
           <Row className='justify-content-md-center p-2' md='1'>
-            <LinkContainer to='/excluirconta'>
-              <Button variant='dark'>Excluir conta</Button>
-            </LinkContainer>
-          </Row>
-          {/* CONSULTAR CONTAS */}
-          <Row className='justify-content-md-center p-2' md='1'>
-            <LinkContainer to='/consultarcontas'>
+            <LinkContainer to='/consultarprodutos'>
               <Button
                 variant='dark'
                 // onClick={() => {
                 //   exibirTabela(true);
                 // }}
               >
-                Consultar contas
+                Consultar produtos
               </Button>
             </LinkContainer>
           </Row>
@@ -100,6 +100,12 @@ export default function TelaInicial(props) {
           <Row className='justify-content-md-center p-2' md='1'>
             <LinkContainer to='/alteraragencia'>
               <Button variant='dark'>Alterar agência</Button>
+            </LinkContainer>
+          </Row>
+          {/* CADASTRAR PRODUTO EM AGÊNCIA */}
+          <Row className='justify-content-md-center p-2' md='1'>
+            <LinkContainer to='/cadastrarprodutoemagencia'>
+              <Button variant='dark'>Cadastrar produto em agência</Button>
             </LinkContainer>
           </Row>
           {/* EXCLUIR AGÊNCIA */}

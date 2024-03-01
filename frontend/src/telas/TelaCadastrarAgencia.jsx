@@ -2,13 +2,11 @@ import { Button, Col, Dropdown, Form, Row } from 'react-bootstrap';
 import Pagina from '../templates/Pagina';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useState } from 'react';
-// import listaContas from '../dados/mockContas.js';
 
 export default function TelaCadastrarAgencia(props) {
   const [validado, setValidado] = useState(false);
   const [agencia, setAgencia] = useState({
-    // incluir código da agência → autoincrement, não definido pelo usuário
-    codigo: '',
+    cod_ag: '',
     endereco: '',
     cidade: '',
     uf: '',
@@ -63,13 +61,37 @@ export default function TelaCadastrarAgencia(props) {
           <Row>
             {/* UF */}
             <Col md='2'>
-              <Form.Group className='mb-3' controlId='uf' style={{ width: '150px' }}>
+              <Form.Group className='mb-3' controlId='uf'>
                 <Form.Label style={{ width: '50px' }}>UF:</Form.Label>
-                <select className='mb-3' style={{ width: '40px' }} id='uf'>
+                <select className='mb-3' style={{ width: '60px' }} id='uf'>
                   <option></option>
+                  <option value='AC'>AC</option>
+                  <option value='AL'>AL</option>
+                  <option value='AP'>AP</option>
+                  <option value='AM'>AM</option>
+                  <option value='BA'>BA</option>
+                  <option value='CE'>CE</option>
+                  <option value='ES'>ES</option>
+                  <option value='GO'>GO</option>
+                  <option value='MA'>MA</option>
+                  <option value='MT'>MT</option>
+                  <option value='MS'>MS</option>
+                  <option value='MG'>MG</option>
+                  <option value='PA'>PA</option>
+                  <option value='PB'>PB</option>
+                  <option value='PR'>PR</option>
+                  <option value='PE'>PE</option>
+                  <option value='PI'>PI</option>
+                  <option value='RJ'>RJ</option>
+                  <option value='RN'>RN</option>
+                  <option value='RS'>RS</option>
+                  <option value='RO'>RO</option>
+                  <option value='RR'>RR</option>
+                  <option value='SC'>SC</option>
                   <option value='SP'>SP</option>
-                  <option value='SP'>PR</option>
-                  <option value='SP'>MG</option>
+                  <option value='SE'>SE</option>
+                  <option value='TO'>TO</option>
+                  <option value='DF'>DF</option>
                 </select>
                 {/* <Dropdown.Toggle required id='uf'>
                   akjsdh

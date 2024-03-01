@@ -2,30 +2,27 @@ import { Button, Col, Form, Row } from 'react-bootstrap';
 import Pagina from '../templates/Pagina';
 import { LinkContainer } from 'react-router-bootstrap';
 
-export default function TelaAlterarCliente() {
+export default function TelaContratarProduto() {
   return (
     <Pagina>
-      <h2>Alteração de dados de cliente</h2>
-      <br />
-      <h4>Exibir aqui o nome e o CPF do correntista</h4>
+      <h2>Contratar produto</h2>
+      <h4>Exibir dropdown com lista de clientes para utilizar no formulário de contratar produto</h4>
+      <h4>Exibir dropdown com lista de produtos disponíveis</h4>
       <br />
       <Form>
-        {/* ENDEREÇO */}
-        <Form.Group className='mb-3' controlId='endereco' style={{ width: '340px' }}>
+        {/* <Form.Group className='mb-3' controlId='endereco' style={{ width: '340px' }}>
           <Form.Label>Endereço:</Form.Label>
           <Form.Control required type='endereco' id='endereco' />
           <Form.Control.Feedback type='invalid'>Informe o endereço do cliente!</Form.Control.Feedback>
-        </Form.Group>
-
+        </Form.Group> */}
         {/* CIDADE */}
-        <Form.Group className='mb-3' controlId='cidade' style={{ width: '340px' }}>
+        {/* <Form.Group className='mb-3' controlId='cidade' style={{ width: '340px' }}>
           <Form.Label>Cidade:</Form.Label>
           <Form.Control required type='cidade' id='cidade' />
           <Form.Control.Feedback type='invalid'>Informe a cidade do cliente!</Form.Control.Feedback>
-        </Form.Group>
-
+        </Form.Group> */}
         {/* UF */}
-        <Form.Group className='mb-3' controlId='uf'>
+        {/* <Form.Group className='mb-3' controlId='uf'>
           <Form.Label style={{ width: '50px' }}>UF:</Form.Label>
           <select className='mb-3' id='uf'>
             <option></option>
@@ -57,36 +54,32 @@ export default function TelaAlterarCliente() {
             <option value='TO'>TO</option>
             <option value='DF'>DF</option>
           </select>
-        </Form.Group>
-
+        </Form.Group> */}
         {/* EMAIL */}
-        <Form.Group className='mb-3' controlId='email' style={{ width: '340px' }}>
+        {/* <Form.Group className='mb-3' controlId='email' style={{ width: '340px' }}>
           <Form.Label>Novo email:</Form.Label>
           <Form.Control required type='email' />
           <Form.Control.Feedback type='invalid'>Informe o novo email do cliente!</Form.Control.Feedback>
-        </Form.Group>
-
+        </Form.Group> */}
         {/* TELEFONE */}
-        <Form.Group className='mb-3' controlId='telefone' style={{ width: '140px' }}>
+        {/* <Form.Group className='mb-3' controlId='telefone' style={{ width: '140px' }}>
           <Form.Label>Novo telefone:</Form.Label>
           <Form.Control required type='number' />
           <Form.Control.Feedback type='invalid'>Informe o novo telfone do cliente!</Form.Control.Feedback>
-        </Form.Group>
-
+        </Form.Group> */}
         {/* SENHA */}
-        <Col md='2'>
+        {/* <Col md='2'>
           <Form.Group className='mb-3' controlId='formSenha' style={{ width: '150px' }}>
             <Form.Label>Nova senha:</Form.Label>
             <Form.Control required type='password' />
           </Form.Group>
-        </Col>
+        </Col> */}
         <br />
-
         <Row>
           {/* BOTÃO DE CONFIRMAR ALTERAÇÕES */}
           <Col xs='auto'>
             <Button variant='dark' type='submit'>
-              Confirmar alterações
+              Contratar produto
             </Button>
           </Col>
 

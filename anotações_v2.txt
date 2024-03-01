@@ -13,7 +13,7 @@ CREATE TABLE Agencia(
 ============================PRODUTO============================
 ===============================================================
 CREATE TABLE Produto(
-	cod_prod INT NOT NULL AUTO_INCREMENT KEY,
+    cod_prod INT NOT NULL AUTO_INCREMENT KEY,
     nome VARCHAR(60)
 );
 
@@ -44,21 +44,23 @@ CREATE TABLE Cliente_Produto(
 
 ####################### OPERAÇÕES #######################
 
-AGÊNCIA:
-	CADASTRAR
-	ALTERAR
-	CADASTRAR PRODUTO
+CLIENTE:
+	CADASTRAR	OK
+	ALTERAR		OK
+	EXCLUIR		OK
+	CONSULTAR	OK
+	CONTRATAR PRODUTO	OK
 
 PRODUTO:
-	CADASTRAR
-	EXCLUIR
+	CADASTRAR	OK
+	EXCLUIR		OK
+	CONSULTAR	OK
 
-CLIENTE:
-	CADASTRAR
-	ALTERAR
-	EXCLUIR
-	CONTRATAR PRODUTO
-
+AGÊNCIA:
+	CADASTRAR	OK
+	CONSULTAR	OK
+	ALTERAR		OK
+	CADASTRAR PRODUTO
 
 ++++++++++++++++++++++++++RELACIONAMENTOS++++++++++++++++++++++++++
 AGÊNCIA N : N PRODUTOS	N agências têm N produtos
@@ -68,8 +70,58 @@ CLIENTE N : 1 AGÊNCIA	1 agência tem N clientes
 
 ************DÚVIDAS************
 
-Como selecionar uma UF no dropdown para ser gravada no backend?
-Como manter uma opção vazia de UF no dropdown sem que haja possibilidade dela ser gravada no backend?
+- Como centralizar logo do banco no espaço da direita da página?
+
+------------------------CLIENTE------------------------
+► TelaCadastrarCliente.jsx
+- Devo incluir na função TelaCadastrarCliente os parâmetros cod_cli e cod_ag?
+- O que é props.exibirTabela? Não encontrei a função disso
+- Como fazer pra checar se a senha foi inserida duas vezes com o mesmo valor (senha e repetir senha)?
+
+► TelaAlterarCliente
+OK
+
+► TelaConsultarClientes.jsx
+- Colocar código de conta e de agência na tabela
+- Adicionar botões de alterar e excluir cliente
+
+► TelaContratarProduto
+- Como exibir dropdown mostrando a lista de clientes e, a partir disto, exibir dropdown listando os produtos disponíveis para aquele cliente?
+
+
+------------------------PRODUTO------------------------
+► TelaCadastrarProduto.jsx
+- Como fazer código de produto ser autoincrement e exibir o número do novo produto cadastrado?
+
+► TelaExcluirProduto.jsx
+OK
+
+► TelaConsultarProdutos.jsx
+- Como adicionar botão de excluir produto e cadastrar novo produto?
+
+
+------------------------AGÊNCIA------------------------
+► TelaCadastrarAgencia.jsx
+- Como selecionar uma UF no dropdown para ser gravada no backend?
+- Como manter uma opção vazia de UF no dropdown sem que haja possibilidade dela ser gravada no backend?
+- Como exibir mensagem de erro caso o usuário não selecione uma UF?
+
+► TelaConsultarAgencia.jsx
+- Como exibir botão para edição de agência e cadastro de produtos na tabela?
+
+► TelaAlterarAgencia.jsx
+- Como exibir dropdown para seleção da lista de agências com cidade e UF?
+
+► TelaCadastrarProdEmAgencia.jsx
+- Selecionar produto em dropdown e inserir agência onde cadastrá-lo
+
+
+
+
+
+
+
+
 Como exibir o nome e CPF do cliente na página de alterar cadastro de cliente?
 Como fazer validação de senha em duplicidade (digitar senha duas vezes para validar uma troca de senha, por exemplo)
 Como mostrar o número da nova conta que foi cadastrada?
