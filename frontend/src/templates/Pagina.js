@@ -4,7 +4,7 @@ import Cabecalho from './Cabecalho';
 export default function Pagina(props) {
   return (
     <>
-      <Cabecalho texto='Banco Aurum' />
+      <Cabecalho texto='BANCO AURUM' />
       <Container>{props.children}</Container>
     </>
   );
