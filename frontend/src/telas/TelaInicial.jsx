@@ -11,7 +11,7 @@ export default function TelaInicial(props) {
 
   return (
     <Pagina>
-      <Row className='d-flex align-items-center justify-content-center'>
+      <Row md='5'>
         <Col>
           {/* ______________________________CLIENTE______________________________ */}
           {/* CADASTRAR CLIENTE */}
@@ -109,7 +109,7 @@ export default function TelaInicial(props) {
             </LinkContainer>
           </Row>
         </Col>
-        <Col className='d-flex align-items-center justify-content-center'>
+        <Col className='d-flex align-items-center justify-content-center' md='3'>
           <Image src='https://cdn.icon-icons.com/icons2/2104/PNG/512/bank_icon_129525.png' width={400} fluid />
         </Col>
       </Row>

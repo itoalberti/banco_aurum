@@ -18,14 +18,14 @@ EXCLUIR
 CADASTRAR
 ALTERAR
 CONSULTAR
-	codigo (autoincrement)
-	endereço
+	codigo (pk, autoincrement)
+	endereco
 	cidade
 	uf
 
-==========================CONTA==========================
-CADASTRAR	utiliza CPF e senha para validação
-ALTERAR		utiliza número e senha para validação
+==========================PRODUTO==========================
+CADASTRAR
+ALTERAR
 CONSULTAR
 EXCLUIR
 	numero (autoincrement)
