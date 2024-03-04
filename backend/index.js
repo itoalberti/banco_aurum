@@ -3,7 +3,7 @@ import Conta from './Modelo/Conta.js';
 import rotaConta from './Rotas/rotaConta.js';
 import rotaAgencia from './Rotas/rotaAgencia.js';
 import cors from 'cors';
-import { configDotenv } from 'dotenv';
+// import { configDotenv } from 'dotenv';
 
 // dotenv.config()
 // configDotenv();
