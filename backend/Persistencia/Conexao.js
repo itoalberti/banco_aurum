@@ -9,8 +9,10 @@ export default async function conectar() {
 
     // PARA USAR O BANCO LOCAL:
     host: '129.146.68.51',
-    user: 'mauricioalberti',
-    password: 'mauricioalbertipfs2',
+    user: process.env.USUARIO_BD,
+    password: process.env.SENHA_BD,
+    // user: 'mauricioalberti',
+    // password: 'mauricioalbertipfs2',
     database: 'backendpfs2',
     port: 3306,
 

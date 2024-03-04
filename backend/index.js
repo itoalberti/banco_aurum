@@ -3,16 +3,30 @@ import Conta from './Modelo/Conta.js';
 import rotaConta from './Rotas/rotaConta.js';
 import rotaAgencia from './Rotas/rotaAgencia.js';
 import cors from 'cors';
-// import { configDotenv } from 'dotenv';
+import dotenv from 'dotenv';
+import session from 'express-session';
+import rotaLogin from './Rotas/rotaLogin.js';
 
-// dotenv.config()
-// configDotenv();
-// console.log(process.env);
+console.log('dotenv.config():');
+dotenv.config();
+console.log('process.env():');
+console.log(process.env);
 
 const app = express();
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
 app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(
+  session({
+    secret: process.env.SEGREDO,
+    resave: false,
+    saveUninitialized: true,
+    maxAge: 1000 * 60 * 5,
+  })
+);
+
+// app.use('/login', rotaLogin);
+app.use('/login', rotaLogin);
 app.use('/contas', rotaConta);
 app.use('/agencias', rotaAgencia);
 
