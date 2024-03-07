@@ -7,7 +7,7 @@ import { useState } from 'react';
 export default function TelaCadastrarCliente(props) {
   const [validado, setValidado] = useState(false);
   const [cliente, setCliente] = useState({
-    // cod_cli:'',
+    cod_cli: '',
     nome: '',
     cpf: '',
     senha: '',

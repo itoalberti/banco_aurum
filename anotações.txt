@@ -79,11 +79,11 @@ CLIENTE N : 1 AGÊNCIA	1 agência tem N clientes
 - Como fazer pra checar se a senha foi inserida duas vezes com o mesmo valor (senha e repetir senha)?
 
 ► TelaAlterarCliente
-OK
+- Como coletar a UF para enviar ao backend?
 
 ► TelaConsultarClientes.jsx
-- Colocar código de conta e de agência na tabela
-- Adicionar botões de alterar e excluir cliente
+- Adicionar funções editar/excluir aos botões na tabela
+- Como alterar o tamanho dos ícones e botões pra caber numa linha só?
 
 ► TelaContratarProduto
 - Como exibir dropdown mostrando a lista de clientes e, a partir disto, exibir dropdown listando os produtos disponíveis para aquele cliente?
@@ -94,7 +94,7 @@ OK
 - Como fazer código de produto ser autoincrement e exibir o número do novo produto cadastrado?
 
 ► TelaExcluirProduto.jsx
-OK
+- Como pedir confirmação da exclusão?
 
 ► TelaConsultarProdutos.jsx
 - Como adicionar botão de excluir produto e cadastrar novo produto?
