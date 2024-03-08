@@ -1,4 +1,4 @@
-import { assinar } from './funcoesJWT';
+import { assinar, verificarAssinatura } from './funcoesJWT';
 
 export function autenticar(req, resp) {
   const usuario = req.body.usuario;
@@ -14,6 +14,19 @@ export function autenticar(req, resp) {
     resp.status(401).json({
       status: false,
       mensagem: 'Usuário ou senha inválidos!',
+    });
+  }
+}
+
+export function verificarAcesso(req, resp, next) {
+  const token = req.headers['authorization'];
+  const tokenDecodificado = verificarAssinatura(token);
+  if (tokenDecodificado == req.session.usuarioAutenticado) {
+    next();
+  } else {
+    resp.status(401).json({
+      status: false,
+      mensagem: 'Acesso não autorizado. Faça o login na aplicação!',
     });
   }
 }
