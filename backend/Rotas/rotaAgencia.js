@@ -5,6 +5,6 @@ const rotaAgencia = new Router();
 const agenciaCtrl = new AgenciaCtrl();
 
 rotaAgencia.get('/', agenciaCtrl.consultar).post('/', agenciaCtrl.cadastrar).put('/', agenciaCtrl.alterar).delete('/', agenciaCtrl.excluir);
-rotaAgencia.get('/consultarParaAlterar/:codigo', agenciaCtrl.consultarParaAlterar);
+rotaAgencia.get('/consultarParaAlterar/:cod_ag', agenciaCtrl.consultarParaAlterar);
 
 export default rotaAgencia;

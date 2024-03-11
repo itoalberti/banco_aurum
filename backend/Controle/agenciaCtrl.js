@@ -54,7 +54,7 @@ export default class AgenciaCtrl {
       const cidade = dados.cidade;
       const uf = dados.uf;
 
-      if (cod_ag && cidade && uf) {
+      if (cod_ag && endereco && cidade && uf) {
         // alterar as informações da agência
         const agencia = new Agencia(cod_ag, endereco, cidade, uf);
         // chamando o método assíncrono alterar da camada de persistência
@@ -151,7 +151,7 @@ export default class AgenciaCtrl {
     }
   }
 
-  // CONSULTAR PARA ALTERAR AGÊNCIA
+  // ---------------------------------CONSULTAR PARA ALTERAR AGÊNCIA---------------------------------
   consultarParaAlterar(req, resp) {
     resp.type('application/json');
 
