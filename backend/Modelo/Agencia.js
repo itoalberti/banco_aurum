@@ -2,13 +2,13 @@ import conectar from '../Persistencia/Conexao.js';
 import AgenciaBD from '../Persistencia/AgenciaBD.js';
 
 export default class Agencia {
-  #codigo;
+  #cod_ag;
   #endereco;
   #cidade;
   #uf;
 
-  constructor(codigo, endereco, cidade, uf) {
-    this.#codigo = codigo;
+  constructor(cod_ag, endereco, cidade, uf) {
+    this.#cod_ag = cod_ag;
     this.#endereco = endereco;
     this.#cidade = cidade;
     this.#uf = uf;
@@ -17,11 +17,11 @@ export default class Agencia {
   // MÉTODOS PÚBLICOS
 
   // CÓDIGO DA AGÊNCIA
-  get codigo() {
-    return this.#codigo;
+  get cod_ag() {
+    return this.#cod_ag;
   }
-  set codigo(novoCodigo) {
-    this.#codigo = novoCodigo;
+  set cod_ag(novoCodigo) {
+    this.#cod_ag = novoCodigo;
   }
 
   // ENDEREÇO DA AGÊNCIA
@@ -50,7 +50,7 @@ export default class Agencia {
 
   toJSON() {
     return {
-      codigo: this.#codigo,
+      cod_ag: this.#cod_ag,
       endereco: this.#endereco,
       cidade: this.#cidade,
       uf: this.#uf,
@@ -60,7 +60,7 @@ export default class Agencia {
   // CADASTRAR AGÊNCIA ------------------------------------------------------------------------------
   async cadastrarBD() {
     const agenciaBD = new AgenciaBD();
-    this.codigo = await agenciaBD.cadastrar(this);
+    this.cod_ag = await agenciaBD.cadastrar(this);
   }
 
   // // ALTERAR AGÊNCIA ------------------------------------------------------------------------------
@@ -75,28 +75,29 @@ export default class Agencia {
   }
 
   // CONSULTAR AGÊNCIAS ------------------------------------------------------------------------------
-  async consultarBD(codigo) {
-    if (codigo == undefined) {
+  async consultarBD(cod_ag) {
+    if (cod_ag == undefined) {
       const conexao = await conectar();
       const sql = 'SELECT * FROM Agencia';
       const parametros = ['%'];
       const [rows] = await conexao.query(sql, parametros);
       const listaAgencias = [];
       for (const row of rows) {
-        const agencia = new Agencia(row['codigo'], row['endereco'], row['cidade'], row['uf']);
+        const agencia = new Agencia(row['cod_ag'], row['endereco'], row['cidade'], row['uf']);
         listaAgencias.push(agencia);
       }
       return listaAgencias;
     } else {
       const conexao = await conectar();
-      const sql = 'SELECT * FROM Agencia WHERE codigo=?';
-      const parametros = [codigo];
+      const sql = 'SELECT * FROM Agencia WHERE cod_ag=?';
+      const parametros = [cod_ag];
       const [rows] = await conexao.query(sql, parametros);
       const listaAgencias = [];
       for (const row of rows) {
-        const agencia = new Agencia(row['codigo'], row['endereco'], row['cidade'], row['uf']);
+        const agencia = new Agencia(row['cod_ag'], row['endereco'], row['cidade'], row['uf']);
         listaAgencias.push(agencia);
       }
+      // PQ RETORNA [0] ?
       return listaAgencias[0];
     }
   }
