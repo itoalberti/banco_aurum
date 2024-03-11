@@ -1,4 +1,4 @@
-import Conta from '../Modelo/Conta.js';
+import Conta from '../Modelo/___Conta.js';
 import conectar from './Conexao.js';
 
 export default class ContaBD {

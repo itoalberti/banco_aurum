@@ -1,5 +1,5 @@
 import conectar from '../Persistencia/Conexao.js';
-import ContaBD from '../Persistencia/ContaBD.js';
+import ContaBD from '../Persistencia/___ContaBD.js';
 
 export default class Conta {
   #num;
