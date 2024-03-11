@@ -1,4 +1,4 @@
-import ClienteCtrl from '../Controle/clienteCtrl';
+import ClienteCtrl from '../Controle/clienteCtrl.js';
 import { Router } from 'express';
 
 const rotaCliente = new Router();

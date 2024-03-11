@@ -1,6 +1,7 @@
 import express from 'express';
-import Conta from './Modelo/Conta.js';
-import rotaConta from './Rotas/rotaConta.js';
+// import Conta from './Modelo/Conta.js';
+// import rotaConta from './Rotas/rotaConta.js';
+import rotaCliente from './Rotas/rotaCliente.js';
 import rotaAgencia from './Rotas/rotaAgencia.js';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -27,7 +28,8 @@ app.use(
 
 // app.use('/login', rotaLogin);
 app.use('/login', rotaLogin);
-app.use('/contas', rotaConta);
+// app.use('/contas', rotaConta);
+app.use('/clientes', rotaCliente);
 app.use('/agencias', rotaAgencia);
 
 const porta = 3001;
