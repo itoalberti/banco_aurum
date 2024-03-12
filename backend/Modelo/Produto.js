@@ -1,4 +1,4 @@
-import conectar from '../Persistencia/Conexao';
+import conectar from '../Persistencia/Conexao.js';
 
 export default class Produto {
   #cod_prod;

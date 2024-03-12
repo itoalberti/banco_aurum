@@ -1,12 +1,12 @@
 import express from 'express';
-// import Conta from './Modelo/Conta.js';
-// import rotaConta from './Rotas/rotaConta.js';
 import rotaCliente from './Rotas/rotaCliente.js';
 import rotaAgencia from './Rotas/rotaAgencia.js';
+import rotaProduto from './Rotas/rotaProduto.js';
+import rotaLogin from './Rotas/rotaLogin.js';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import session from 'express-session';
-import rotaLogin from './Rotas/rotaLogin.js';
+import { verificarAcesso } from './Seguranca/Autenticacao.js';
 
 console.log('dotenv.config():');
 dotenv.config();
@@ -28,9 +28,9 @@ app.use(
 
 // app.use('/login', rotaLogin);
 app.use('/login', rotaLogin);
-// app.use('/contas', rotaConta);
-app.use('/clientes', rotaCliente);
-app.use('/agencias', rotaAgencia);
+app.use('/agencias', verificarAcesso, rotaAgencia);
+app.use('/clientes', verificarAcesso, rotaCliente);
+app.use('/produtos', verificarAcesso, rotaProduto);
 
 const porta = 3001;
 const hostname = 'localhost';

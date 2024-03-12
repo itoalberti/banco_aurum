@@ -1,4 +1,4 @@
-import Produto from '../Modelo/Produto';
+import Produto from '../Modelo/Produto.js';
 
 export default class ProdutoCtrl {
   // GRAVAR O PRODUTO NO BANCO DE DADOS

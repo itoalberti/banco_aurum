@@ -1,3 +1,4 @@
+// import jwt from 'jsonwebtoken';
 import jwt from 'jsonwebtoken';
 
 // não se devem manter senhas e segredos no código fonte

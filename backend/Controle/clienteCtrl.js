@@ -1,4 +1,4 @@
-import Cliente from '../Modelo/Conta.js';
+import Cliente from '../Modelo/Cliente.js';
 
 export default class ClienteCtrl {
   // GRAVAR O CLIENTE NO BANCO DE DADOS------------------------------------------------------------------------
