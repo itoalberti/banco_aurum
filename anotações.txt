@@ -121,7 +121,8 @@ CLIENTE N : 1 AGÊNCIA	1 agência tem N clientes
 
 
 DÚVIDAS:
-- implementar relacionamento N:N no backend (produtos:clientes)
+- implementar relacionamento N:N no backend (produtos:agências / produtos:clientes)
+- criar tabela no BD para produtos:agências e produtos:clientes
 - implementar camada de segurança no backend
 
 Como exibir o nome e CPF do cliente na página de alterar cadastro de cliente?

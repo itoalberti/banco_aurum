@@ -17,8 +17,8 @@
 --     CONTRAINT pk_agencia PRIMARY KEY(codigo)
 -- )
 
-insert into Agencia (endereco,cidade,uf)values('Rua tal','Pres.Prudente','SP');
-commit;
+INSERT INTO Agencia (endereco,cidade,uf) VALUES ('Rua tal','Pres.Prudente','SP');
+COMMIT;
 
 
 -- NOVA VERSÃO
@@ -55,3 +55,11 @@ CREATE TABLE Cliente_Produto(
     FOREIGN KEY (cod_cli) REFERENCES Cliente(cod_cli),
     FOREIGN KEY (cod_prod) REFERENCES Produto(cod_prod)
 );
+
+--  CHECAR SE ESTÁ CORRETO
+CREATE TABLE Agencia_Produto(
+    cod_ag INT NOT NULL,
+    cod_prod INT NOT NULL,
+    FOREIGN KEY (cod_ag) REFERENCES Agencia(cod_ag)
+    FOREIGN KEY (cod_prod) REFERENCES Produto(cod_prod)
+)
