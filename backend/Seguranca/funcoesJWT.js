@@ -9,6 +9,6 @@ export function assinar(usuario) {
   return token;
 }
 
-export function verificarAssinatura(usuario) {
+export function verificarAssinatura(token) {
   return jwt.verify(token, process.env.SEGREDO);
 }

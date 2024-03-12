@@ -8,9 +8,9 @@ export default function TelaExcluirCliente() {
       <h2>Exclusão de cliente</h2>
       <br />
       <Form>
-        {/* CPF */}
-        <Form.Group className='mb-3' controlId='CPF' style={{ width: '200px' }}>
-          <Form.Label>Digite o CPF do cliente que deseja excluir:</Form.Label>
+        {/* CÓDIGO DE CLIENTE */}
+        <Form.Group className='mb-3' controlId='cod_cli' style={{ width: '200px' }}>
+          <Form.Label>Digite o código do cliente que deseja excluir:</Form.Label>
           <Form.Control required type='text' />
           {/* <Form.Control.Feedback type='invalid'>Informe o CPF do cliente a ser excluído!</Form.Control.Feedback> */}
         </Form.Group>

@@ -28,9 +28,9 @@ app.use(
 
 // app.use('/login', rotaLogin);
 app.use('/login', rotaLogin);
-app.use('/agencias', verificarAcesso, rotaAgencia);
-app.use('/clientes', verificarAcesso, rotaCliente);
-app.use('/produtos', verificarAcesso, rotaProduto);
+app.use('/agencia', verificarAcesso, rotaAgencia);
+app.use('/cliente', verificarAcesso, rotaCliente);
+app.use('/produto', verificarAcesso, rotaProduto);
 
 const porta = 3001;
 const hostname = 'localhost';
