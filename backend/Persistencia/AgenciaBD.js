@@ -1,8 +1,9 @@
 import Agencia from '../Modelo/Agencia.js';
+import Agencia_Produto from '../Modelo/Agencia_Produto.js';
 import conectar from './Conexao.js';
 
 export default class AgenciaBD {
-  // CADASTRAR AGÊNCIA NO BANCO DE DADOS
+  // ------------------------------------CADASTRAR AGÊNCIA NO BANCO DE DADOS------------------------------------
   async cadastrar(agencia) {
     if (agencia instanceof Agencia) {
       const conexao = await conectar();
@@ -14,7 +15,7 @@ export default class AgenciaBD {
     }
   }
 
-  // ALTERAR AGÊNCIA NO BANCO DE DADOS
+  // ------------------------------------ALTERAR AGÊNCIA NO BANCO DE DADOS------------------------------------
   async alterar(agencia) {
     if (agencia instanceof Agencia) {
       const conexao = await conectar();
@@ -26,7 +27,7 @@ export default class AgenciaBD {
     }
   }
 
-  // EXCLUIR AGÊNCIA DO BANCO DE DADOS
+  // ------------------------------------EXCLUIR AGÊNCIA DO BANCO DE DADOS------------------------------------
   async excluir(agencia) {
     if (agencia instanceof Agencia) {
       const conexao = await conectar();
@@ -38,7 +39,7 @@ export default class AgenciaBD {
     }
   }
 
-  // CONSULTAR AGÊNCIAS NO BANCO DE DADOS
+  // ------------------------------------CONSULTAR AGÊNCIAS NO BANCO DE DADOS------------------------------------
   async consultar() {
     const conexao = await conectar();
     const sql = 'SELECT * FROM Tabela_Agencia';
@@ -53,5 +54,13 @@ export default class AgenciaBD {
     return listaAgencias;
   }
 
-  // ASSOCIAR PRODUTO
+  // ------------------------------------ASSOCIAR PRODUTO A AGÊNCIA------------------------------------
+  async associarProdutoAgencia(agencia_produto) {
+    if (agencia_produto instanceof Agencia_Produto) {
+      const conexao = await conectar();
+      const sql = 'INSERT INTO Agencia_Produto (cod_ag, cod_prod) VALUES(?,?)';
+      const parametros = [agencia_produto.cod_ag, agencia_produto.cod_prod];
+      await conexao.query(sql, parametros);
+    }
+  }
 }

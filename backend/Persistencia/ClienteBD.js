@@ -1,4 +1,5 @@
 import Cliente from '../Modelo/Cliente.js';
+import Cliente_Produto from '../Modelo/Cliente_Produto.js';
 import conectar from './Conexao.js';
 
 export default class ClienteBD {
@@ -56,5 +57,15 @@ export default class ClienteBD {
     // O QUE É O poolConexoes E releaseConnection?
     global.poolConexoes.pool.releaseConnection(conexao);
     return listaClientes;
+  }
+
+  // ------------------------------------ASSOCIAR PRODUTO A CLIENTE------------------------------------
+  async associarProdutoCliente(cliente_produto) {
+    if (cliente_produto instanceof Cliente_Produto) {
+      const conexao = await conectar();
+      const sql = 'INSERT INTO Cliente_Produto (cod_cli, cod_prod) VALUES(?,?)';
+      const parametros = [cliente_produto.cod_cli, cliente_produto.cod_prod];
+      await conexao.query(sql, parametros);
+    }
   }
 }
