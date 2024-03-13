@@ -6,20 +6,22 @@ export default class AgenciaCtrl {
     resp.type('application/json');
     if (req.method === 'POST' && req.is('application/json')) {
       const dados = req.body;
-      const cod_ag = dados.cod_ag;
+      // const cod_ag = dados.cod_ag;
       const endereco = dados.endereco;
       const cidade = dados.cidade;
       const uf = dados.uf;
 
-      if (endereco && cidade) {
+      if (endereco && cidade && uf) {
         // const agencia = new Agencia(0, endereco, cidade);
-        const agencia = new Agencia(0, cod_ag, endereco, cidade, uf);
+        const agencia = new Agencia(0, endereco, cidade, uf);
+        console.log('Agência cadastrada (endereço) / cidade:', agencia.endereco, agencia.cidade);
+
         agencia
           .cadastrarBD()
           .then(() => {
             resp.status(200).json({
               status: true,
-              cod_ag: agencia.cod_ag,
+              cod_ag: agencia.cod_ag, //nao retirar
               msg: 'Agência criada com sucesso!',
             });
           })
@@ -175,6 +177,50 @@ export default class AgenciaCtrl {
       resp.status(400).json({
         status: false,
         msg: 'O método não é permitido! Consulte a documentação da API!',
+      });
+    }
+  }
+
+  // ASSOCIAR PRODUTO A AGÊNCIA
+  associarProduto(req, resp) {
+    resp.type('application/json');
+    if (req.method === 'POST' && req.is('application/json')) {
+      const dados = req.body;
+      const cod_ag = dados.cod_ag;
+      const cod_prod = dados.cod_prod;
+
+      if (cod_ag && cod_prod) {
+        // const agencia = new Agencia(0, endereco, cidade);
+        // CRIAR MODELO AGENCIAPRODUTO
+        const agencia_produto = new AgenciaProduto(cod_ag, cod_prod);
+        // console.log('Agência cadastrada (endereço) / cidade:', agencia.endereco, agencia.cidade);
+
+        agencia_produto
+          .cadastrarBD()
+          .then(() => {
+            resp.status(200).json({
+              status: true,
+              cod_ag: agencia.cod_ag, //nao retirar
+              msg: 'Agência criada com sucesso!',
+            });
+          })
+          .catch((erro) => {
+            resp.status(500).json({
+              status: false,
+              msg: erro.message,
+            });
+          });
+      } else {
+        resp.status(400).json({
+          status: false,
+          msg: 'Informe todos os dados da agência: endereço e cidade ',
+        });
+      }
+    } else {
+      // 4xx = 'Client error'
+      resp.status(400).json({
+        status: false,
+        msg: 'O método não é permitido ou agência no formato JSON não foi fornecida. Consulte a documentação da API!',
       });
     }
   }

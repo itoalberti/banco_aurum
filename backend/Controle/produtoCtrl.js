@@ -6,11 +6,13 @@ export default class ProdutoCtrl {
     resp.type('application/json');
     if (req.method === 'POST' && req.is('application/json')) {
       const dados = req.body;
-      const cod_prod = dados.cod_prod;
+      // EM TODOS OS CÓDIGOS AUTO_INCREMENT, NÃO DEVE DECLARAR A CONST COM O CÓDIGO NA INSERÇÃO (CADASTRAR)
+      // const cod_prod = dados.cod_prod;
       const nome = dados.nome;
 
-      if (cod_prod && nome) {
-        const produto = new Produto(cod_prod, nome);
+      // if (cod_prod && nome) {
+      if (nome) {
+        const produto = new Produto(nome);
         produto.cadastrarBD().then(() => {
           resp.status(200).json({
             status: true,

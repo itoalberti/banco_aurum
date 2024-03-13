@@ -6,10 +6,10 @@ export default class AgenciaBD {
   async cadastrar(agencia) {
     if (agencia instanceof Agencia) {
       const conexao = await conectar();
-      const sql = 'INSERT INTO Tabela_Agencia (endereco, cidade) VALUES(?,?)';
-      const parametros = [agencia.endereco, agencia.cidade];
+      const sql = 'INSERT INTO Agencia (endereco, cidade, uf) VALUES(?,?,?)';
+      const parametros = [agencia.endereco, agencia.cidade, agencia.uf];
       const resultado = await conexao.query(sql, parametros);
-      global.poolConexoes.pool.releaseConnection(conexao);
+      // global.poolConexoes.pool.releaseConnection(conexao);
       return await resultado[0].insertId;
     }
   }
@@ -18,7 +18,7 @@ export default class AgenciaBD {
   async alterar(agencia) {
     if (agencia instanceof Agencia) {
       const conexao = await conectar();
-      const sql = 'UPDATE Tabela_Agencia SET endereco=? WHERE cod_ag=?';
+      const sql = 'UPDATE Agencia SET endereco=? WHERE cod_ag=?';
       const parametros = [agencia.endereco, agencia.cod_ag];
       await conexao.query(sql, parametros);
       // O QUE É poolConexoes?
@@ -52,4 +52,6 @@ export default class AgenciaBD {
     global.poolConexoes.pool.releaseConnection(conexao);
     return listaAgencias;
   }
+
+  // ASSOCIAR PRODUTO
 }

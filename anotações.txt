@@ -138,3 +138,16 @@ ao cadastrar agência, como informar o código da agência nova?
 ao alterar conta, implementar botão para escolher o que será alterado: email ou senha. no caso de senha, pedir senha anterior e senha nova.
 
 
+MONITORIA****************************
+no video mandar post para rota login e depois get para outras rotas (cliente produto etc)
+no postman na coleção pfs2, criar requests pra login, cliente, produto e agencia
+criar método associarProduto para associar produto em agencia
+
+prafazer n:n agencia e produto, criar:
+modelo AgenciaProduto
+no AgenciaBD criar um associarProduto com POST insert 
+
+pra excluir produto de agência, excluir primeiro relação entre produto e agência
+deletar primeiro da tabela agencia_aproduto e depois da tabela produto
+MONITORIA****************************
+

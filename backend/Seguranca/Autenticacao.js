@@ -21,15 +21,23 @@ export function autenticar(req, resp) {
 export function verificarAcesso(req, resp, next) {
   const token = req.headers['authorization'];
   let tokenDecodificado = '';
-  if (token) {
-    tokenDecodificado = verificarAssinatura(token);
-  }
-  // if (token) {
-  //   tokenDecodificado = verificarAssinatura(token);
-  // }
-  if (tokenDecodificado.usuario.usuario == req.session.usuarioAutenticado) {
-    next();
-  } else {
+  try {
+    if (token) {
+      tokenDecodificado = verificarAssinatura(token);
+    }
+    // if (token) {
+    //   tokenDecodificado = verificarAssinatura(token);
+    // }
+    if (tokenDecodificado.usuario.usuario == req.session.usuarioAutenticado) {
+      next();
+    } else {
+      resp.status(401).json({
+        status: false,
+        mensagem: 'Acesso não autorizado. Faça o login na aplicação!',
+      });
+    }
+  } catch {
+    console.log('Erro ao decodificar token');
     resp.status(401).json({
       status: false,
       mensagem: 'Acesso não autorizado. Faça o login na aplicação!',

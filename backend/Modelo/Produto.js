@@ -1,4 +1,5 @@
 import conectar from '../Persistencia/Conexao.js';
+import ProdutoBD from '../Persistencia/ProdutoBD.js';
 
 export default class Produto {
   #cod_prod;
@@ -38,7 +39,7 @@ export default class Produto {
   //   CADASTRAR PRODUTO
   async cadastrarBD() {
     const produtoBD = new ProdutoBD();
-    this.cod_prod = await produtoBD.cadastrar(this);
+    this.#cod_prod = await produtoBD.cadastrar(this);
   }
 
   //   EXCLUIR PRODUTO

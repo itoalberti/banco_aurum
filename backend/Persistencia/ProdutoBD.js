@@ -1,17 +1,20 @@
-import Produto from '../Modelo/Produto';
-import conectar from './Conexao';
+import Produto from '../Modelo/Produto.js';
+import conectar from './Conexao.js';
 
 export default class ProdutoBD {
   // CADASTRAR PRODUTO NO BANCO DE DADOS
+
+  // EM CÓDIGOS AUTOINCREMENT, NÃO COLOCAR NO INSERT O CÓDIGO
   async cadastrar(produto) {
     if (produto instanceof Produto) {
       const conexao = await conectar();
-      const sql = 'INSERT INTO Produto (cod_prod, nome) VALUES ?, ?';
-      const parametros = [produto.cod_prod, produto.nome];
+      const sql = 'INSERT INTO Produto (nome) VALUES (?)';
+      const parametros = [produto.nome];
+      // const parametros = [produto.cod_prod, produto.nome];
       const resultado = await conexao.query(sql, parametros);
 
       //   CORRIGIR ESSE poolConexoes, o que é?
-      global.poolConexoes.pool.releaseConnection(conexao);
+      // global.poolConexoes.pool.releaseConnection(conexao);
       return await resultado[0].insertId;
     }
   }
@@ -25,7 +28,7 @@ export default class ProdutoBD {
       await conexao.query(sql, parametros);
 
       //   CORRIGIR ESSE poolConexoes, o que é?
-      global.poolConexoes.pool.releaseConnection(conexao);
+      // global.poolConexoes.pool.releaseConnection(conexao);
     }
   }
 
