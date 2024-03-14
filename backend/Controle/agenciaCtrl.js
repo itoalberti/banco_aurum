@@ -1,4 +1,5 @@
 import Agencia from '../Modelo/Agencia.js';
+import Agencia_Produto from '../Modelo/Agencia_Produto.js';
 
 export default class AgenciaCtrl {
   // GRAVAR A AGÊNCIA NO BANCO DE DADOS------------------------------------------------------------------------
@@ -50,7 +51,7 @@ export default class AgenciaCtrl {
     resp.type('application/json');
     if (req.method === 'PUT' && req.is('application/json')) {
       const dados = req.body;
-      // const cod_ag = dados.cod_ag;
+      const cod_ag = dados.cod_ag;
       const endereco = dados.endereco;
       const cidade = dados.cidade;
       const uf = dados.uf;
@@ -58,7 +59,7 @@ export default class AgenciaCtrl {
       // if (cod_ag && endereco && cidade && uf) {
       if (cod_ag && endereco && cidade && uf) {
         // alterar as informações da agência
-        const agencia = new Agencia(0, endereco, cidade, uf);
+        const agencia = new Agencia(cod_ag, endereco, cidade, uf);
         // chamando o método assíncrono alterar da camada de persistência
         agencia
           .alterarBD()
@@ -192,7 +193,7 @@ export default class AgenciaCtrl {
       if (cod_ag && cod_prod) {
         // const agencia = new Agencia(0, endereco, cidade);
         // CRIAR MODELO AGENCIAPRODUTO
-        const agencia_produto = new AgenciaProduto(cod_ag, cod_prod);
+        const agencia_produto = new Agencia_Produto(cod_ag, cod_prod);
         // console.log('Agência cadastrada (endereço) / cidade:', agencia.endereco, agencia.cidade);
 
         agencia_produto
@@ -200,7 +201,8 @@ export default class AgenciaCtrl {
           .then(() => {
             resp.status(200).json({
               status: true,
-              cod_ag: agencia.cod_ag, //nao retirar
+              cod_ag: agencia_produto.cod_ag, //nao retirar
+              cod_prod: agencia_produto.cod_prod,
               msg: 'Agência criada com sucesso!',
             });
           })
