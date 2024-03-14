@@ -13,8 +13,8 @@ CREATE TABLE Agencia(
 ============================PRODUTO============================
 ===============================================================
 CREATE TABLE Produto(
-    cod_prod INT NOT NULL AUTO_INCREMENT KEY,
-    nome VARCHAR(60)
+	cod_prod INT NOT NULL AUTO_INCREMENT KEY,
+	nome VARCHAR(60)
 );
 
 ============================CLIENTE============================
@@ -29,47 +29,52 @@ CREATE TABLE Cliente(
 	uf VARCHAR(2) NOT NULL,
 	email VARCHAR(50) NOT NULL,
 	telefone VARCHAR(15) NOT NULL,
-    cod_ag INT NOT NULL,
-    FOREIGN KEY (cod_ag) REFERENCES Agencia(cod_ag)
+    	cod_ag INT NOT NULL,
+    	FOREIGN KEY (cod_ag) REFERENCES Agencia(cod_ag)
 );
 
 
 CREATE TABLE Cliente_Produto(
 	cod_cli INT NOT NULL,
-    cod_prod INT NOT NULL,
-    FOREIGN KEY (cod_cli) REFERENCES Cliente(cod_cli),
-    FOREIGN KEY (cod_prod) REFERENCES Produto(cod_prod)
+	cod_prod INT NOT NULL,
+    	FOREIGN KEY (cod_cli) REFERENCES Cliente(cod_cli),
+    	FOREIGN KEY (cod_prod) REFERENCES Produto(cod_prod)
 );
 
 
 ####################### OPERAÇÕES #######################
 
 CLIENTE:
-	CADASTRAR	OK
-	ALTERAR		OK
-	EXCLUIR		OK
-	CONSULTAR	OK
-	CONTRATAR PRODUTO	OK
+	CADASTRAR		±OK. NECESSÁRIO IMPLEMENTAR/CORRIGIR CADASTRO PARA SENHA E CÓDIGO DE AGÊNCIA (CHAVE ESTRANGEIRA)
+	ALTERAR			NÃO OK
+	EXCLUIR			OK
+	CONSULTAR		OK
+	CONTRATAR PRODUTO	NÃO OK
 
 PRODUTO:
-	CADASTRAR	OK
-	EXCLUIR		OK
-	CONSULTAR	OK
+	CADASTRAR		OK
+	EXCLUIR			OK
+	CONSULTAR		OK
 
 AGÊNCIA:
-	CADASTRAR	OK
-	CONSULTAR	OK
-	ALTERAR		OK
-	CADASTRAR PRODUTO
-
-++++++++++++++++++++++++++RELACIONAMENTOS++++++++++++++++++++++++++
-AGÊNCIA N : N PRODUTOS	N agências têm N produtos
-CLIENTE N : 1 AGÊNCIA	1 agência tem N clientes
+	CADASTRAR		OK
+	CONSULTAR		OK
+	ALTERAR			NÃO OK
+	DELETAR			OK
+	CADASTRAR PRODUTO	NÃO OK
 
 
+####################### RELACIONAMENTOS ####################### 
+AGÊNCIA N : N PRODUTOS ► N agências têm N produtos
+CLIENTE N : 1 AGÊNCIA ► 1 agência tem N clientes
 
-************DÚVIDAS************
+Fazer (Maurício):
+Mexer no frontend pra incluir os botões de alterar/excluir na tabela
+Colocar navbar pra selecionar opções de agencia, cliente e produto
 
+
+
+####################### DÚVIDAS ####################### 
 - Como centralizar logo do banco no espaço da direita da página?
 
 ------------------------CLIENTE------------------------

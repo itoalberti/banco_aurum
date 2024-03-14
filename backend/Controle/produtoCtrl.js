@@ -7,12 +7,11 @@ export default class ProdutoCtrl {
     if (req.method === 'POST' && req.is('application/json')) {
       const dados = req.body;
       // EM TODOS OS CÓDIGOS AUTO_INCREMENT, NÃO DEVE DECLARAR A CONST COM O CÓDIGO NA INSERÇÃO (CADASTRAR)
-      // const cod_prod = dados.cod_prod;
       const nome = dados.nome;
 
       // if (cod_prod && nome) {
       if (nome) {
-        const produto = new Produto(nome);
+        const produto = new Produto(0, nome);
         produto.cadastrarBD().then(() => {
           resp.status(200).json({
             status: true,
@@ -64,6 +63,7 @@ export default class ProdutoCtrl {
   // CONSULTAR O PRODUTO NO BANCO DE DADO
   consultar(req, resp) {
     resp.type('application/json');
+
     if (req.method === 'GET') {
       const produto = new Produto();
       produto
@@ -84,4 +84,7 @@ export default class ProdutoCtrl {
       });
     }
   }
+
+  // IMPLEMENTAR POSTERIORMENTE
+  associarProdutoCliente() {}
 }

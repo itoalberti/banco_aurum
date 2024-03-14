@@ -23,7 +23,7 @@ export default class AgenciaBD {
       const parametros = [agencia.endereco, agencia.cod_ag];
       await conexao.query(sql, parametros);
       // O QUE É poolConexoes?
-      global.poolConexoes.pool.releaseConnection(conexao);
+      // global.poolConexoes.pool.releaseConnection(conexao);
     }
   }
 
@@ -31,8 +31,7 @@ export default class AgenciaBD {
   async excluir(agencia) {
     if (agencia instanceof Agencia) {
       const conexao = await conectar();
-      // const sql = 'DELETE FROM Tabela_Agencia WHERE endereco=? AND cidade=? AND codigo=?';
-      const sql = 'DELETE FROM Tabela_Agencia WHERE cod_ag=?';
+      const sql = 'DELETE FROM Agencia WHERE cod_ag=?';
       const parametros = [agencia.cod_ag];
       await conexao.query(sql, parametros);
       global.poolConexoes.pool.releaseConnection(conexao);
@@ -42,7 +41,7 @@ export default class AgenciaBD {
   // ------------------------------------CONSULTAR AGÊNCIAS NO BANCO DE DADOS------------------------------------
   async consultar() {
     const conexao = await conectar();
-    const sql = 'SELECT * FROM Tabela_Agencia';
+    const sql = 'SELECT * FROM Agencia';
     const parametros = ['%'];
     const [rows] = await conexao.query(sql, parametros);
     const listaAgencias = [];

@@ -39,7 +39,7 @@ export default class Produto {
   //   CADASTRAR PRODUTO
   async cadastrarBD() {
     const produtoBD = new ProdutoBD();
-    this.#cod_prod = await produtoBD.cadastrar(this);
+    this.cod_prod = await produtoBD.cadastrar(this);
   }
 
   //   EXCLUIR PRODUTO
@@ -49,7 +49,7 @@ export default class Produto {
   }
 
   //   CONSULTAR PRODUTO
-  async consultarBD() {
+  async consultarBD(cod_prod) {
     if (cod_prod == undefined) {
       const conexao = await conectar();
       const sql = 'SELECT * FROM Produto';

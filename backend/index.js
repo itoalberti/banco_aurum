@@ -26,7 +26,6 @@ app.use(
   })
 );
 
-// app.use('/login', rotaLogin);
 app.use('/login', rotaLogin);
 app.use('/agencia', verificarAcesso, rotaAgencia);
 app.use('/cliente', verificarAcesso, rotaCliente);

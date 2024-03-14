@@ -8,7 +8,7 @@ export default class ProdutoBD {
   async cadastrar(produto) {
     if (produto instanceof Produto) {
       const conexao = await conectar();
-      const sql = 'INSERT INTO Produto (nome) VALUES (?)';
+      const sql = 'INSERT INTO Produto (nome) VALUE (?)';
       const parametros = [produto.nome];
       // const parametros = [produto.cod_prod, produto.nome];
       const resultado = await conexao.query(sql, parametros);

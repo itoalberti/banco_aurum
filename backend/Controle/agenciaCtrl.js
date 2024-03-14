@@ -14,7 +14,6 @@ export default class AgenciaCtrl {
       if (endereco && cidade && uf) {
         // const agencia = new Agencia(0, endereco, cidade);
         const agencia = new Agencia(0, endereco, cidade, uf);
-        console.log('Agência cadastrada (endereço) / cidade:', agencia.endereco, agencia.cidade);
 
         agencia
           .cadastrarBD()
@@ -51,14 +50,15 @@ export default class AgenciaCtrl {
     resp.type('application/json');
     if (req.method === 'PUT' && req.is('application/json')) {
       const dados = req.body;
-      const cod_ag = dados.cod_ag;
+      // const cod_ag = dados.cod_ag;
       const endereco = dados.endereco;
       const cidade = dados.cidade;
       const uf = dados.uf;
 
+      // if (cod_ag && endereco && cidade && uf) {
       if (cod_ag && endereco && cidade && uf) {
         // alterar as informações da agência
-        const agencia = new Agencia(cod_ag, endereco, cidade, uf);
+        const agencia = new Agencia(0, endereco, cidade, uf);
         // chamando o método assíncrono alterar da camada de persistência
         agencia
           .alterarBD()

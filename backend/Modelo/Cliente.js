@@ -1,4 +1,5 @@
 import conectar from '../Persistencia/Conexao.js';
+import ClienteBD from '../Persistencia/ClienteBD.js';
 
 export default class Cliente {
   #cod_cli;
@@ -102,6 +103,14 @@ export default class Cliente {
     this.#telefone = novoTelefone;
   }
 
+  // SENHA DO CLIENTE
+  get senha() {
+    return this.#senha;
+  }
+  set senha(novaSenha) {
+    this.#senha = novaSenha;
+  }
+
   // CÓDIGO DA AGÊNCIA DO CLIENTE
   get cod_ag() {
     return this.#cod_ag;
@@ -121,7 +130,6 @@ export default class Cliente {
       uf: this.#uf,
       email: this.#email,
       telefone: this.#telefone,
-      //   NÃO DEVERIA TER OS CAMPOS SENHA E COD_AG?
       senha: this.#senha,
       cod_ag: this.#cod_ag,
     };

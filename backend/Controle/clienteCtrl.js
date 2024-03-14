@@ -6,7 +6,7 @@ export default class ClienteCtrl {
     resp.type('application/json');
     if (req.method === 'POST' && req.is('application/json')) {
       const dados = req.body;
-      const cod_cli = dados.cod_cli;
+      // const cod_cli = dados.cod_cli;
       const nome = dados.nome;
       const cpf = dados.cpf;
       const dataNasc = dados.dataNasc;
@@ -15,17 +15,19 @@ export default class ClienteCtrl {
       const uf = dados.uf;
       const email = dados.email;
       const telefone = dados.telefone;
+      const cod_ag = dados.cod_ag;
       // const senha = dados.senha;
-      if (nome && cpf && dataNasc && endereco && cidade && uf && email) {
+      if (nome && cpf && dataNasc && endereco && cidade && uf && email && cod_ag) {
         // gravar as informações da conta
         // const conta = new Conta(0, nome, cpf, dataNasc, endereco, cidade, uf, email, telefone);
-        const conta = new Cliente(cod_cli, nome, cpf, dataNasc, endereco, cidade, uf, email, telefone);
-        conta
+        const cliente = new Cliente(0, nome, cpf, dataNasc, endereco, cidade, uf, email, telefone, cod_ag);
+
+        cliente
           .cadastrarBD()
           .then(() => {
             resp.status(200).json({
               status: true,
-              num: conta.num,
+              cod_cli: cliente.cod_cli,
               msg: 'Conta criada com sucesso!',
             });
           })
@@ -38,7 +40,7 @@ export default class ClienteCtrl {
       } else {
         resp.status(400).json({
           status: false,
-          msg: 'Informe todos os dados do cliente: nome, CPF, data de nascimento, endereço, cidade, UF, email e senha',
+          msg: 'Informe todos os dados do cliente: nome, CPF, data de nascimento, endereço, cidade, UF, email, senha e código da agência',
         });
       }
     } else {
@@ -187,6 +189,49 @@ export default class ClienteCtrl {
       resp.status(400).json({
         status: false,
         msg: 'O método não é permitido! Consulte a documentação da API!',
+      });
+    }
+  }
+
+  // ASSOCIAR PRODUTO A CLIENTE
+  associarProdutoCliente(req, resp) {
+    resp.type('application/json');
+    if (req.method === 'POST' && req.is('application/json')) {
+      const dados = req.body;
+      const cod_cli = dados.cod_cli;
+      const cod_prod = dados.cod_prod;
+
+      if (cod_cli && cod_prod) {
+        // CRIAR MODELO CLIENTEPRODUTO
+        const cliente_produto = new ClienteProduto(cod_cli, cod_prod);
+        // console.log('Agência cadastrada (endereço) / cidade:', agencia.endereco, agencia.cidade);
+
+        cliente_produto
+          .cadastrarBD()
+          .then(() => {
+            resp.status(200).json({
+              status: true,
+              cod_ag: agencia.cod_ag, //nao retirar
+              msg: 'Agência criada com sucesso!',
+            });
+          })
+          .catch((erro) => {
+            resp.status(500).json({
+              status: false,
+              msg: erro.message,
+            });
+          });
+      } else {
+        resp.status(400).json({
+          status: false,
+          msg: 'Informe todos os dados da agência: endereço e cidade ',
+        });
+      }
+    } else {
+      // 4xx = 'Client error'
+      resp.status(400).json({
+        status: false,
+        msg: 'O método não é permitido ou agência no formato JSON não foi fornecida. Consulte a documentação da API!',
       });
     }
   }

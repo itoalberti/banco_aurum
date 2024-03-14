@@ -7,8 +7,8 @@ export default class ClienteBD {
   async cadastrar(cliente) {
     if (cliente instanceof Cliente) {
       const conexao = await conectar();
-      const sql = 'INSERT INTO Cliente (cod_cli, nome, cpf, dataNasc, endereco, cidade, uf, email, telefone, senha, cod_ag) VALUES (?,?,?,?,?,?,?,?,?,?,?)';
-      const parametros = [cliente.cod_cli, cliente.nome, cliente.cpf, cliente.dataNasc, cliente.endereco, cliente.cidade, cliente.uf, cliente.email, cliente.telefone, cliente.senha, cliente.cod_ag];
+      const sql = 'INSERT INTO Cliente (nome, cpf, dataNasc, endereco, cidade, uf, email, telefone, cod_ag) VALUES (?,?,?,?,?,?,?,?,?)';
+      const parametros = [cliente.nome, cliente.cpf, cliente.dataNasc, cliente.endereco, cliente.cidade, cliente.uf, cliente.email, cliente.telefone, cliente.cod_ag];
       const resultado = await conexao.query(sql, parametros);
       // O QUE É O poolConexoes E releaseConnection?
       global.poolConexoes.pool.releaseConnection(conexao);
@@ -20,8 +20,8 @@ export default class ClienteBD {
   async alterar(cliente) {
     if (cliente instanceof Cliente) {
       const conexao = await conectar();
-      const sql = 'UPDATE TABLE Cliente SET endereco=?, cidade=?, uf=?, email=?, telefone=?, senha=?, cod_ag=? WHERE cod_cli=?';
-      const parametros = [cliente.endereco, cliente.cidade, cliente.uf, cliente.email, cliente.telefone, cliente.senha, cliente.cod_ag, cliente.cod_cli];
+      const sql = 'UPDATE TABLE Cliente SET endereco=?, cidade=?, uf=?, email=?, telefone=?, cod_ag=? WHERE cod_cli=?';
+      const parametros = [cliente.endereco, cliente.cidade, cliente.uf, cliente.email, cliente.telefone, cliente.cod_ag, cliente.cod_cli];
       await conexao.query(sql, parametros);
 
       // O QUE É O poolConexoes E releaseConnection?
@@ -50,7 +50,7 @@ export default class ClienteBD {
     const [rows] = await conexao.query(sql, parametros);
     const listaClientes = [];
     for (const row of [rows]) {
-      const cliente = new Cliente(row['cod_cli'], row['nome '], row['cpf'], row['dataNasc'], row['endereco'], row['cidade'], row['uf'], row['email'], row['telefone'], row['senha'], row['cod_ag']);
+      const cliente = new Cliente(row['cod_cli'], row['nome '], row['cpf'], row['dataNasc'], row['endereco'], row['cidade'], row['uf'], row['email'], row['telefone'], row['cod_ag']);
       listaClientes.push(cliente);
     }
 
