@@ -37,7 +37,6 @@ const hostname = 'localhost';
 // aluno36-pfsii    |     porta 4036
 // const porta = 4036;
 // const hostname = '129.146.68.51';
-// const hostname = '129.146.68.51:8443';
 
 app.listen(porta, hostname, () => {
   console.log(`Backend ouvindo em http://${hostname}:${porta}`);

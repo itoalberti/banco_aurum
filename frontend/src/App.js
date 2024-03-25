@@ -3,9 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import TelaInicial from './telas/TelaInicial';
 import TelaCadastrarCliente from './telas/TelaCadastrarCliente';
 import TelaAlterarCliente from './telas/TelaAlterarCliente';
-// import TelaAlterarConta from './telas/___TelaAlterarConta';
 import TelaConsultarProdutos from './telas/TelaConsultarProdutos';
-// import TelaExcluirConta from './telas/TelaExcluirProduto';
 import TelaConsultarAgencias from './telas/TelaConsultarAgencias';
 import Tela404 from './telas/Tela404';
 import TelaCadastrarAgencia from './telas/TelaCadastrarAgencia';
@@ -16,6 +14,7 @@ import TelaCadastrarProduto from './telas/TelaCadastrarProduto';
 import TelaExcluirProduto from './telas/TelaExcluirProduto';
 import TelaContratarProduto from './telas/TelaContratarProduto';
 import TelaCadastrarProdEmAgencia from './telas/TelaCadastrarProdEmAgencia';
+// import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 
 // banco de dados: backendpfs2
 // user: mauricioalberti
@@ -50,6 +49,24 @@ function App() {
         </Routes>
       </BrowserRouter>
     </>
+    // <Navbar expand='lg' className='bg-body-tertiary'>
+    //   <Container>
+    //     <Navbar.Brand href='TelaCadastrarCliente'>BANCO AURUM</Navbar.Brand>
+    //     <Navbar.Toggle aria-controls='basic-navbar-nav' />
+    //     <Navbar.Collapse id='basic-navbar-nav'>
+    //       <Nav className='me-auto'>
+    //         {/* <Nav.Link href='#home'>Home</Nav.Link> */}
+    //         <Nav.Link href='/cadastrarcliente'>Link</Nav.Link>
+    //         <NavDropdown title='Clientes' id='basic-nav-dropdown'>
+    //           <NavDropdown.Item href='/cadastrarcliente'>Cadastrar Cliente</NavDropdown.Item>
+    //           <NavDropdown.Item href='#action/3.2'>Alterar Cliente</NavDropdown.Item>
+    //           <NavDropdown.Item href='#action/3.2'>Excluir Cliente</NavDropdown.Item>
+    //           <NavDropdown.Item href='#action/3.2'>Consultar Clientes</NavDropdown.Item>
+    //         </NavDropdown>
+    //       </Nav>
+    //     </Navbar.Collapse>
+    //   </Container>
+    // </Navbar>
   );
 }
 

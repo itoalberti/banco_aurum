@@ -4,19 +4,19 @@ export default async function conectar() {
   if (global.conexao && global.conexao.state !== 'disconnected') {
     return global.conexao;
   }
-  const conn = await mysql.createPool({
+  const conn = mysql.createPool({
     // const conn = mysql.createPool({
 
     // PARA USAR O BANCO LOCAL:
-    host: '129.146.68.51',
     // user: 'mauricioalberti',
     // password: 'mauricioalbertipfs2',
+    host: '129.146.68.51',
     user: process.env.USUARIO_BD,
     password: process.env.SENHA_BD,
     database: 'backendpfs2',
-    port: 3306,
+    // port: 3306,
 
-    // waitForConnections: true,
+    waitForConnections: true,
     // connectionLimit: 10,
     // queueLimit: 0,
   });
